@@ -103,6 +103,14 @@ void vela() {
 	glEnd();
 
 }
+void velero() {
+	glPushMatrix();
+	
+	base();
+	vela();
+	mastil();
+	glPopMatrix();
+}
 void basefaro() {
 	float radio = 2.14;
 	float cx, cy;
@@ -208,12 +216,25 @@ void dibujar  (){
 	mar();
 	luna1();
 	luna2();
-	base();
-	vela();
-	mastil();
+	velero();
 	basefaro();
 	faro();
-	
+
+	/*for (int i = -7; i < 5; i += 2)
+	{
+		glPushMatrix();
+			glTranslated(i, 0, 0);
+			velero();
+		glPopMatrix();
+		
+	}*/
+	glPushMatrix();
+	glTranslated(-2,0,0);
+	glScaled(0.6, 0.6, 0.6);
+		velero();
+	glPopMatrix();
+
+		
 
 	glFlush();
 }
